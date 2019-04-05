@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
-    kubernetes.io/change-cause: "Updated to 1.0.1"
+    kubernetes.io/change-cause: "Updated to 1.5.1"
   labels:
     run: web-app
   name: web-app
@@ -11,10 +11,11 @@ spec:
   selector:
     matchLabels:
       run: web-app-dp
+  revisionHistoryLimit: 2
   strategy:
     rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
+      maxSurge: 100%
+      maxUnavailable: 100%
     type: RollingUpdate
   template:
     metadata:
@@ -22,5 +23,5 @@ spec:
         run: web-app-dp
     spec:
       containers:
-      - image: ikambarov/web-app:1.0.1
+      - image: ikambarov/web-app:1.5.1
         name: web-app
