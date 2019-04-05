@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
-    kubernetes.io/change-cause: "Inititial revision"
+    kubernetes.io/change-cause: "Updated to 1.0.1"
   labels:
     run: web-app
   name: web-app
@@ -22,5 +22,5 @@ spec:
         run: web-app-dp
     spec:
       containers:
-      - image: ikambarov/web-app:1.0.0
+      - image: ikambarov/web-app:1.0.1
         name: web-app
